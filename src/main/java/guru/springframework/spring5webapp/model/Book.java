@@ -16,6 +16,8 @@ public class Book {
     private String isbn;
     private String publisher;
 
+    /* Since Author and Book have many to many relationship, during schema creation 2 tables gets created 
+    i.e. author_book and book_author. The jointable setting makes sure to create a single mapping table*/
     @ManyToMany
     @JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"),
     inverseJoinColumns = @JoinColumn(name = "author_id"))
